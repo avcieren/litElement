@@ -16,12 +16,15 @@ import filesize from 'rollup-plugin-filesize';
 import {terser} from 'rollup-plugin-terser';
 import resolve from 'rollup-plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
+import babel from 'rollup-plugin-babel';
+import minifyHTML from 'rollup-plugin-minify-html-literals';
+import { uglify } from 'rollup-plugin-uglify';
 
 export default {
-  input: 'my-element.js',
+  input: 'dist/my-element.js',
   output: {
-    file: 'my-element.bundled.js',
-    format: 'esm',
+    file: 'dist/bundled.js',
+    format: 'es',
   },
   onwarn(warning) {
     if (warning.code !== 'THIS_IS_UNDEFINED') {
@@ -29,6 +32,7 @@ export default {
     }
   },
   plugins: [
+    minifyHTML(),
     replace({'Reflect.decorate': 'undefined'}),
     resolve(),
     terser({
@@ -40,6 +44,5 @@ export default {
     }),
     filesize({
       showBrotliSize: true,
-    }),
-  ],
+    })]
 };

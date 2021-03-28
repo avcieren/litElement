@@ -26,5 +26,5 @@ For this element to work from unpkg.com specifically, you need to include the `?
 
 ### JavaScript
 ```html
-import {MyElement} from 'https://unpkg.com/my-element?module';
+import {MainApp} from 'https://unpkg.com/my-element?module';
 ```

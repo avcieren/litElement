@@ -20,8 +20,8 @@ import {LitElement, html, customElement, property, css} from 'lit-element';
  * @slot - This element has a slot
  * @csspart button - The button
  */
-@customElement('my-element')
-export class MyElement extends LitElement {
+@customElement('main-app')
+export class MainApp extends LitElement {
 
   static styles = css`
     .semClass {color:red;}
@@ -38,7 +38,7 @@ export class MyElement extends LitElement {
   /**
    * The name to say "Hello" to.
    */
-  @property({type:String})
+ /** @property({type:String})
   name = 'World';
 
   /**
@@ -64,10 +64,11 @@ export class MyElement extends LitElement {
   foo(): string {
     return 'foo';
   }
+
 }
 
 declare global {
   interface HTMLElementTagNameMap {
-    'my-element': MyElement;
+    'main-app': MainApp;
   }
 }
